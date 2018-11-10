@@ -1,0 +1,26 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "An Amazon-like storefront with the MySQL.",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "node bamazonCustomer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albertcoder/bamazon.git"
+  },
+  "author": "Albert Snowlove",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/albertcoder/bamazon/issues"
+  },
+  "homepage": "https://github.com/albertcoder/bamazon#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^6.2.0",
+    "keypress": "^0.2.1",
+    "mysql": "^2.16.0",
+    "validator": "^10.9.0"
+  }
+}
