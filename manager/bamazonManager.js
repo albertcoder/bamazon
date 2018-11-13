@@ -29,6 +29,37 @@ function grabProducts() {
   });
 }
 
+// Load the manager options and pass in the products data from the database
+function ManagerPrivileges(products) {
+  inquirer
+    .prompt({
+      type: "list",
+      name: "choice",
+      choices: ["View Products for Sale", "View Low Stock", "Add to Stock", "Add New Product", "Quit"],
+      message: "What would you like to do?"
+    })
+    .then(function(userInput) {
+      switch (userInput.choice) {
+      case "View Products for Sale":
+        console.table(products);
+        grabProducts();
+        break;
+      case "View Low Stock":
+        grabLowStock();
+        break;
+      case "Add to Stock":
+        addToStock(products);
+        break;
+      case "Add New Product":
+        askManagerForNewProduct(products);
+        break;
+      default:
+        console.log("See you soon!");
+        process.exit(0);
+        break;
+      }
+    });
+}
 
 
 
