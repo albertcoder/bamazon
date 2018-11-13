@@ -72,6 +72,23 @@ function grabLowStock() {
   });
 }
 
+// Ask the manager to add the products
+function addToStock(Stock) {
+  console.table(Stock);
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "choice",
+        message: "What is the ID of the item you would you like add to?",
+        validate: function(userInput) {
+          return !isNaN(userInput);
+        }
+      }
+    ])
+    .then(function(userInput) {
+      var choiceIdee = parseInt(userInput.choice);
+      var product = checkStock(choiceIdee, Stock);
 
 
 
