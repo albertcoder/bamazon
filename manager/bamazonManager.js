@@ -19,6 +19,15 @@ connection.connect(function(err) {
   grabProducts();
 });
 
+// Get product data from the database
+function grabProducts() {
+  connection.query("SELECT * FROM products", function(err, res) {
+    if (err) throw err;
+
+    // Show the manager privileges
+    ManagerPrivileges(res);
+  });
+}
 
 
 
