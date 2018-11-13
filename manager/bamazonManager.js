@@ -103,6 +103,24 @@ function addToStock(Stock) {
     });
 }
 
+// Ask for the quantity that should be added to the chosen product
+function askManagerForQuantity(product) {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "quantity",
+        message: "How many would you like to add?",
+        validate: function(userInput) {
+          return userInput > 0;
+        }
+      }
+    ])
+    .then(function(userInput) {
+      var quantity = parseInt(userInput.quantity);
+      addQuantity(product, quantity);
+    });
+}
 
 
   
