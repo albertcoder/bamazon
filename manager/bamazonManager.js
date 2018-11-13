@@ -147,6 +147,41 @@ function checkStock(choiceId, Stock) {
     return null;
   }
   
+  // Asks the manager details about the new product
+// Adds new product to the db when complete
+function askManagerForNewProduct(products) {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "product_name",
+          message: "What is the name of the product you would like to add?"
+        },
+        {
+          type: "list",
+          name: "department_name",
+          choices: getDepartments(products),
+          message: "Which department does this product fall into?"
+        },
+        {
+          type: "input",
+          name: "price",
+          message: "How much does it cost?",
+          validate: function(val) {
+            return val > 0;
+          }
+        },
+        {
+          type: "input",
+          name: "quantity",
+          message: "How many do we have?",
+          validate: function(val) {
+            return !isNaN(val);
+          }
+        }
+      ])
+      .then(addNewProduct);
+  }
   
   
 
