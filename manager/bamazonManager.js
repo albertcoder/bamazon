@@ -61,6 +61,16 @@ function ManagerPrivileges(products) {
     });
 }
 
+// Query the DB for low Stock products
+function grabLowStock() {
+  // Selects all of the products that have a quantity of 5 or less
+  connection.query("SELECT * FROM products WHERE stock_quantity <= 5", function(err, res) {
+    if (err) throw err;
+    // Draw the table in the terminal using the response
+    console.table(res);
+    grabProducts();
+  });
+}
 
 
 
