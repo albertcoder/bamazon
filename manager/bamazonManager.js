@@ -135,6 +135,17 @@ function addQuantity(product, quantity) {
   );
 }
 
+// Check to see if the product the user chose exists in the Stock
+function checkStock(choiceId, Stock) {
+    for (var i = 0; i < Stock.length; i++) {
+      if (Stock[i].item_id === choiceId) {
+        // If a matching product is found, return the product
+        return Stock[i];
+      }
+    }
+    // Otherwise return null
+    return null;
+  }
   
   
   
