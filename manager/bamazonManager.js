@@ -90,6 +90,18 @@ function addToStock(Stock) {
       var choiceIdee = parseInt(userInput.choice);
       var product = checkStock(choiceIdee, Stock);
 
+      // If a product already exists
+      if (product) {
+        // Pass the chosen product to askCustomerForQuantity
+        askManagerForQuantity(product);
+      }
+      else {
+        // Otherwise let the user know and grab the products
+        console.log("\nThat item is not in the Stock.");
+        grabProducts();
+      }
+    });
+}
 
 
 
